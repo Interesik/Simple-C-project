@@ -9,6 +9,7 @@ Aby uruchomić ten Kod musisz go:
 7. Powino by linia ostatni : C:\Svenja-project-master>_
 8. Kopiujesz: cmake -S . -B ./build  Modlisz się że skończy się tekstem -- Build files have been written to: C:/Svenja-project-master/build, jak nie musisz do mnie napisać.
 9. Kopiujesz cmake --build ./build -- Nie może być na czerwono inaczej jak na górze.
-10. Kopiujesz cd ./build/Debug i potem jeżeli chcesz uruchomić program to ./svfenia.exe <- tak do zmiany nazwa.
+10. Kopiujesz cd ./build/Debug i potem jeżeli chcesz uruchomić program to wpisz: Svfenia.exe <- tak do zmiany nazwa.
+Jeżeli pokazało się coś normalnego: to gratuluje właśnie udało ci się zrobić rzecz którą większość studentów informatyki nie potrafi na 2 roku studiów.
 # TODO:
 1. Przerobić gotowy produkt od waszego kochanego Code::Blocksa <- Relikt przeszłości.
