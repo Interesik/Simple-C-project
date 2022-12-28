@@ -1,0 +1,12 @@
+https://www.math.uni.wroc.pl/~mpal/academic/2022/cpp2.php
+
+
+Napisz program, który będzie realizował bazę danych studentów, wykładów i zapisów.
+Baza powinna być przechowywana w plikach tekstowych. Powinny być 3 pliki: student.txt (imię, nazwisko, numer indeksu - powiedzmy 6 cyfr), wyklad.txt (nazwa przedmiotu, nazwisko prowadzącego, kod przedmiotu - powiedzmy 3 cyfry) oraz
+zapis.txt (numer indeksu i kod przedmiotu). Program po uruchomieniu powinien wczytać te 3 pliki do 3 list dynamicznych.
+Elementami list powinny być obiekty odpowiednich klas. 
+Program powinien umożliwiać dodawanie elementów do list, usuwanie.
+Powinien umożliwiać znajdowanie elementów w poszczególnych listach. 
+Przed zakończeniem działania program powinien zapisać wszystkie obiekty do odpowiednich plikow.
+Program powinien być zorganizowany w osobnych plikach.
+ Pytania prosze kierować do mnie mailowo.
