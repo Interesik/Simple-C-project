@@ -1,5 +1,6 @@
 #include "../include/Student.h"
 #include "../include/Lista_studentow.h"
+#include "../include/Repozytorium.h"
 using namespace std;
 
 
@@ -15,9 +16,9 @@ void Lista_studentow::wypisz_liste()
     while (tymcz!=nullptr)
     {
         cout << "Student nr" << i++ << ":" << endl;
-        cout << "Nazwisko:" << (tymcz-> wypisz_nazwisko()) << endl;
-        cout << "Imie:" << (tymcz-> wypisz_imie()) << endl;
-        cout << "Indeks:" << (tymcz-> wypisz_indeks()) << endl;
+        cout << "Nazwisko:" << (tymcz-> pobierz_nazwisko()) << endl;
+        cout << "Imie:" << (tymcz-> pobierz_imie()) << endl;
+        cout << "Indeks:" << (tymcz-> pobierz_indeks()) << endl;
         tymcz = tymcz -> nastepny;
 
     }
@@ -25,8 +26,9 @@ void Lista_studentow::wypisz_liste()
 }
 void Lista_studentow::dodaj_studenta()
 {
+    Repozytorium *repo = new Repozytorium();
     Student *nowy = new Student();
-    (*nowy).zapisz(nowy->wypisz_imie(), nowy->wypisz_nazwisko(), nowy->wypisz_indeks());
+    repo->zapisz_studenta(*nowy);
     if (koniec != nullptr ) koniec -> nastepny = nowy;
     nowy -> nastepny = nullptr;
     koniec = nowy;   //trzy wskaźniki ustawilismy

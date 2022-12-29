@@ -10,8 +10,8 @@ public:
     ~Lista_studentow();
     Student *poczatek;
     Student *koniec;
-    Student znajdz_studenta_nazwisko(string); //funkcja która przyjmuje np. nazwisko lub indeks
-    Student znajdz_studenta_indeks(string);
+    Student znajdz_studenta_nazwisko(string nazwisko); //funkcja która przyjmuje np. nazwisko lub indeks
+    Student znajdz_studenta_indeks(string indeks);
     void dodaj_studenta();
     void wypisz_liste();
     //mozna oddac mase funkcji

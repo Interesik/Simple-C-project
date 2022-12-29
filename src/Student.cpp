@@ -12,6 +12,6 @@ Student::Student() {
 Student::~Student() {}
 
 
-string Student::wypisz_nazwisko() {return this->nazwisko;}
-string Student::wypisz_imie() {return this->imie;}
-string Student::wypisz_indeks() {return this->indeks;}
+string Student::pobierz_nazwisko() {return this->nazwisko;}
+string Student::pobierz_imie() {return this->imie;}
+string Student::pobierz_indeks() {return this->indeks;}

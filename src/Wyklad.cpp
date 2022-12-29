@@ -12,3 +12,7 @@ Wyklad::Wyklad() {
 }
 
 Wyklad::~Wyklad() {}
+
+string Wyklad::pobierz_kod_przedmiotu() { return this->kod_przedmiotu;};
+string Wyklad::pobierz_nazwa_przedmiotu() { return this->nazwa_przedmiotu;};
+string Wyklad::pobierz_nazwisko_prowadzacego() { return this->nazwisko_prowadzacego;};

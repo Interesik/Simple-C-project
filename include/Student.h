@@ -16,10 +16,9 @@ public:
     Student();
     // dekonstruktor
     ~Student();
-    void zapisz(string, string, string);
-    string wypisz_nazwisko();
-    string wypisz_imie();
-    string wypisz_indeks();
+    string pobierz_nazwisko();
+    string pobierz_imie();
+    string pobierz_indeks();
     Student *nastepny;
 };
 
