@@ -16,16 +16,19 @@ Repozytorium::~Repozytorium()
     Wyklad_plik.close();
     Zapis_plik.close();
 }
-void Repozytorium::Zapisz_studenta(Student student_zapisz){
-    Student_plik << student_zapisz.wypisz_imie() << "," << 
-    student_zapisz.wypisz_nazwisko() << "," << student_zapisz.wypisz_indeks() << endl;
+void Repozytorium::zapisz_studenta(Student student_zapisz){
+    Student_plik << student_zapisz.pobierz_imie() << "," << 
+    student_zapisz.pobierz_nazwisko() << "," << 
+    student_zapisz.pobierz_indeks() << endl;
 }
 
-void Repozytorium::Zapisz_wyklad(Wyklad wyklad_zapisz){
-    // Wyklad_plik << wyklad_zapisz << ", " << 
-    // wyklad_zapisz << ", " << wyklad_zapisz;
+void Repozytorium::zapisz_wyklad(Wyklad wyklad_zapisz){
+     Wyklad_plik << wyklad_zapisz.pobierz_nazwa_przedmiotu() << ", " << 
+     wyklad_zapisz.pobierz_kod_przedmiotu() << ", " << 
+     wyklad_zapisz.pobierz_nazwisko_prowadzacego() << endl;
 }
 
-void Repozytorium::Zapisz_zapis(Zapis zapis_zapisz){
-
+void Repozytorium::zapisz_zapis(Zapis zapis_zapisz){
+    Zapis_plik << zapis_zapisz.pobierz_kod_przedmiotu() << ", " << 
+    zapis_zapisz.pobierz_numer_indeksu() << endl;
 }

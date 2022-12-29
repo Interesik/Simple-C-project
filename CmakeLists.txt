@@ -3,9 +3,9 @@ set(CMAKE_CXX_COMPILER g++)#requires g++ to be available on PATH
 set(CMAKE_C_COMPILER gcc)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-project(Svfenia)
+project(Svenja)
 enable_language(CXX)
 set(SOURCE_FILES
         src/main.cpp src/Zapis.cpp include/Zapis.h src/Wyklad.cpp include/Wyklad.h src/Student.cpp include/Student.h src/Repozytorium.cpp include/Repozytorium.h
         )
-add_executable(Svfenia ${SOURCE_FILES})
+add_executable(Svenja ${SOURCE_FILES})
