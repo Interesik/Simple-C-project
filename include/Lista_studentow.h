@@ -5,15 +5,30 @@ using namespace std;
 class Student;
 class Lista_studentow
 {
+private:
+    Student *poczatek = nullptr;
+    Student *koniec = nullptr;
 public:
     Lista_studentow(); //konstruktor
+
     ~Lista_studentow();
-    Student *poczatek;
-    Student *koniec;
-    Student znajdz_studenta_nazwisko(string nazwisko); //funkcja która przyjmuje np. nazwisko lub indeks
+
+    void ustaw_poczatek(Student* poczatek);
+
+    void ustaw_koniec(Student* koniec);
+
+    Student* pobierz_poczatek();
+
+    Student* pobierz_koniec();
+
+    Student znajdz_studenta_nazwisko(string nazwisko); 
+    //funkcja która przyjmuje np. nazwisko lub indeks
+    
     Student znajdz_studenta_indeks(string indeks);
-    void dodaj_studenta();
+
+    void dodaj_studenta(Student* nowy);
+
     void wypisz_liste();
-    //mozna oddac mase funkcji
+    //mozna oddac mase funkcji.// czyli usuń, zamień tylko
 
 };

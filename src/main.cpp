@@ -3,15 +3,20 @@
 #include <fstream>
 #include "../include/Repozytorium.h";
 #include "../include/Student.h";
-#include "../include/Student.h";
+#include "../include/Lista_studentow.h";
 
 using namespace std;
 int main()
 {
     Student *stu1 = new Student();
     Repozytorium *rep = new Repozytorium();
-    rep->Zapisz_studenta(*stu1);
+    rep->zapisz_studenta(*stu1);
+    Lista_studentow ls = rep->wycztaj_studentow();
+    ls.wypisz_liste();
+    delete stu1;
+    delete rep;
     return 0;
+    
 }
 
 // int main()

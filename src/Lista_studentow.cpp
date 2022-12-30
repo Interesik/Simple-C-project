@@ -3,10 +3,21 @@
 #include "../include/Repozytorium.h"
 using namespace std;
 
+void Lista_studentow::ustaw_poczatek(Student* poczatek) { this->poczatek = poczatek;};
+
+void Lista_studentow::ustaw_koniec(Student* koniec) { this->koniec = koniec;};
+
+Student* Lista_studentow::pobierz_poczatek() { return poczatek;};
+
+Student* Lista_studentow::pobierz_koniec() { return koniec;};
+
+Lista_studentow::Lista_studentow() {};
+
+Lista_studentow::~Lista_studentow() {};
 
 void Lista_studentow::wypisz_liste()
 {
-    Student *tymcz = poczatek;
+    Student *tymcz = pobierz_poczatek();
     if (tymcz == nullptr)
     {
         cout <<"Lista jest pusta"<<endl;
@@ -24,16 +35,15 @@ void Lista_studentow::wypisz_liste()
     }
 
 }
-void Lista_studentow::dodaj_studenta()
+void Lista_studentow::dodaj_studenta(Student* nowy)
 {
-    Repozytorium *repo = new Repozytorium();
-    Student *nowy = new Student();
-    repo->zapisz_studenta(*nowy);
-    if (koniec != nullptr ) koniec -> nastepny = nowy;
-    nowy -> nastepny = nullptr;
-    koniec = nowy;   //trzy wskaźniki ustawilismy
-    if(poczatek == nullptr)
+    if (this->pobierz_koniec() != nullptr ) {
+        this->pobierz_koniec() -> nastepny = nowy;
+    }
+    nowy->nastepny = nullptr;
+    this->ustaw_koniec(nowy);   //trzy wskaźniki ustawilismy
+    if(this->pobierz_poczatek() == nullptr)
     {
-        poczatek = nowy;
+        this->ustaw_poczatek(nowy);
     }
 }

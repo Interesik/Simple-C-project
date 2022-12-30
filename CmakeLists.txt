@@ -6,6 +6,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(Svenja)
 enable_language(CXX)
 set(SOURCE_FILES
-        src/main.cpp src/Zapis.cpp include/Zapis.h src/Wyklad.cpp include/Wyklad.h src/Student.cpp include/Student.h src/Repozytorium.cpp include/Repozytorium.h
+        src/main.cpp 
+        src/Zapis.cpp include/Zapis.h
+        src/Wyklad.cpp include/Wyklad.h
+        src/Student.cpp include/Student.h
+        src/Repozytorium.cpp include/Repozytorium.h
+        src/Lista_studentow.cpp include/Lista_studentow.h
+        src/Lista_wykladow.cpp include/Lista_wykladow.h
+        src/Lista_zapisow.cpp include/Lista_zapisow.h
         )
 add_executable(Svenja ${SOURCE_FILES})
