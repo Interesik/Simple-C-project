@@ -3,6 +3,7 @@
 #include "../include/Wyklad.h";
 #include "../include/Zapis.h";
 #include "../include/Lista_studentow.h";
+#include <sstream>
 using namespace std;
 
 Repozytorium::Repozytorium()
@@ -48,4 +49,30 @@ Lista_studentow Repozytorium::wycztaj_studentow() {
             ls->dodaj_studenta(st);
         }
     return *ls;
+}
+void Repozytorium::wypisz_studenta(string indeks, Lista_studentow ls) {
+    if(!ls.wyjeb_studenta_za_ECTSY(indeks)) {
+        return;
+    }
+    ostringstream tymcz;
+    string czyt_indeks;
+    Student_plik.clear();
+    Student_plik.seekg(0, ios::beg);
+    tymcz << Student_plik.rdbuf();
+    string zmiana = tymcz.str();
+    Student_plik.clear();
+    Student_plik.seekg(0, ios::beg);
+    while (getline(Student_plik, czyt_indeks)) {
+        if (czyt_indeks.find(indeks)!=string::npos) {
+            // Nie pytajcie dlaczego po prostu C-- pownien nie istnieć.
+            zmiana.replace(zmiana.find(czyt_indeks),czyt_indeks.length()+1,"");
+            Student_plik.close();
+            Student_plik.open("./Student_plik.txt", ios::in | ios::out | ios::trunc);
+            Student_plik << zmiana;
+            Student_plik.close();
+            Student_plik.open("./Student_plik.txt", ios::in | ios::out | ios::app);
+            return;
+        }
+    }
+    return;
 }

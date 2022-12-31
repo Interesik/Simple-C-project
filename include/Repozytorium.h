@@ -14,9 +14,6 @@ private:
     fstream Student_plik;
     fstream Wyklad_plik;
     fstream Zapis_plik;
-    ifstream Student_plik_odcz;
-    ifstream Wyklad_plik_odcz;
-    ifstream Zapis_plik_odcz;
 public:
     Repozytorium();
     ~Repozytorium();
@@ -26,4 +23,5 @@ public:
     Lista_studentow wycztaj_studentow();
     Lista_wykladow wycztaj_wyklady();
     Lista_zapisow wycztaj_zapisy();
+    void wypisz_studenta(string indeks, Lista_studentow ls);
 };

@@ -21,14 +21,16 @@ public:
 
     Student* pobierz_koniec();
 
-    Student znajdz_studenta_nazwisko(string nazwisko); 
+    Student* znajdz_studenta_nazwisko(string nazwisko); 
     //funkcja która przyjmuje np. nazwisko lub indeks
     
-    Student znajdz_studenta_indeks(string indeks);
+    Student* znajdz_studenta_indeks(string indeks);
 
     void dodaj_studenta(Student* nowy);
 
     void wypisz_liste();
+
+    bool wyjeb_studenta_za_ECTSY(string indeks);
     //mozna oddac mase funkcji.// czyli usuń, zamień tylko
 
 };

@@ -9,10 +9,16 @@ using namespace std;
 int main()
 {
     Student *stu1 = new Student();
+    
     Repozytorium *rep = new Repozytorium();
     rep->zapisz_studenta(*stu1);
     Lista_studentow ls = rep->wycztaj_studentow();
     ls.wypisz_liste();
+    Student* znaleziony = ls.znajdz_studenta_indeks("123");
+    cout << znaleziony->pobierz_nazwisko() << endl;
+    rep->wypisz_studenta("123", ls);
+    ls.wypisz_liste();
+    delete znaleziony;
     delete stu1;
     delete rep;
     return 0;
