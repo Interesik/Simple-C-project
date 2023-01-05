@@ -17,7 +17,7 @@ Lista_studentow::~Lista_studentow() {};
 
 void Lista_studentow::wypisz_liste()
 {
-    Student *element_listy = pobierz_poczatek();
+    Student *element_listy = this->pobierz_poczatek();
     if (element_listy == nullptr)
     {
         cout <<"Lista jest pusta"<<endl;

@@ -22,16 +22,10 @@ Repozytorium::~Repozytorium()
     Zapis_plik.close();
 }
 void Repozytorium::zapisz_studenta(Student student_zapisz) {
-    if(Student_plik.is_open()) {
     Student_plik << student_zapisz.pobierz_imie() << "," << 
     student_zapisz.pobierz_nazwisko() << "," << 
     student_zapisz.pobierz_indeks() << "\n";
     cout << "zapisano." << endl;
-    return;
-    } else {
-        cout << "Plik Student_plik nie otworzono." << endl;
-        return;
-    }
 }
 
 void Repozytorium::zapisz_wyklad(Wyklad wyklad_zapisz) {
@@ -103,8 +97,8 @@ Lista_wykladow* Repozytorium::wycztaj_wyklady() {
     Wyklad_plik.clear();
     Wyklad_plik.seekg(0, ios::beg);
     while(getline(Wyklad_plik, nazwa_przedmiotu, ',') && 
-        getline(Wyklad_plik, nazwisko_prowadzacego, ',' ) &&
-        getline(Wyklad_plik, kod_przedmiotu)) {
+        getline(Wyklad_plik, kod_przedmiotu, ',' ) &&
+        getline(Wyklad_plik, nazwisko_prowadzacego)) {
             wy = new Wyklad(nazwa_przedmiotu, nazwisko_prowadzacego, kod_przedmiotu);
             lw->dodaj_wyklad(wy);
         }
@@ -147,12 +141,12 @@ void Repozytorium::anuluj_wyklad(string kod_przedmiotu, Lista_wykladow lw) {
 
 Lista_zapisow* Repozytorium::wycztaj_zapisy() {
     Lista_zapisow *lz = new Lista_zapisow;
-    Zapis *za;
+    Zapis *za = nullptr;
     string kod_przedmiotu, numer_indesku;
     Zapis_plik.clear();
     Zapis_plik.seekg(0, ios::beg);
     while(getline(Zapis_plik, kod_przedmiotu, ',') && 
-        getline(Zapis_plik, numer_indesku, ',' )) {
+        getline(Zapis_plik, numer_indesku)) {
             za = new Zapis(numer_indesku, kod_przedmiotu);
             lz->dodaj_zapis(za);
         }

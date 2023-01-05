@@ -17,7 +17,7 @@ Lista_zapisow::~Lista_zapisow() {};
 
 void Lista_zapisow::wypisz_liste()
 {
-    Zapis *element_listy = pobierz_poczatek();
+    Zapis *element_listy = this->pobierz_poczatek();
     if (element_listy == nullptr)
     {
         cout <<"Lista jest pusta"<<endl;
@@ -55,9 +55,9 @@ Zapis* Lista_zapisow::znajdz_zapis(string kod_przedmiotu, string numer_indeksu) 
     }
     while (element_listy!=nullptr)
     {
-        // Szukamy dopuki nie znajdziemy studneta o takim indesie w liscie
-        if(element_listy->pobierz_kod_przedmiotu().compare(kod_przedmiotu) == 0 
-        && element_listy->pobierz_numer_indeksu().compare(numer_indeksu) == 0) {
+        // Szukamy dopoki nie znajdziemy kod_przedmiotu oraz numer indeksu w liscie
+        if(element_listy->pobierz_kod_przedmiotu().compare(kod_przedmiotu) == 0 &&
+         element_listy->pobierz_numer_indeksu().compare(numer_indeksu) == 0) {
             cout << "Znaleziono: \nZapis:"; 
             cout << "Kod_przedmiotu:" << (element_listy-> pobierz_kod_przedmiotu()) << endl;
             cout << "Numer_indeksu:" << (element_listy-> pobierz_numer_indeksu()) << endl;

@@ -30,9 +30,9 @@ using namespace std;
 
 int main()
 {   
-    Repozytorium *rep = new Repozytorium();
     cofnij: ;
     while(true) {
+        Repozytorium *rep = new Repozytorium();
         cout<<"Program zarzadzania zajeciami \n\n\n";
         cout<< "Wybierz opcje:" << endl;
         cout<<"\t1.Zarzadzaj Studentami"<< endl;
@@ -65,22 +65,27 @@ int main()
                         cin >> indeks;
                         ls = rep->wycztaj_studentow();
                         rep->wypisz_studenta(indeks,*ls);
-                        break;
+                        goto cofnij;
                     case 3:
                         cout << "Podaj nazwisko studenta, do wyswietlenia go z listy: ";
                         cin >> nazwisko;
+                        ls = rep->wycztaj_studentow();
                         ls->znajdz_studenta_nazwisko(nazwisko);
-                        break;
+                        goto cofnij;
                     case 4:
                         cout << "Podaj indeks studenta, do wyswietlenia go z listy: ";
                         cin >> indeks;
+                        ls = rep->wycztaj_studentow();
                         ls->znajdz_studenta_indeks(indeks);
-                        break;
+                        goto cofnij;
                     case 5:
                         ls = rep->wycztaj_studentow();
                         ls->wypisz_liste();
-                        break;
+                        goto cofnij;
                     case 6:
+                        ls = rep->wycztaj_studentow();
+                        delete ls;
+                        delete rep;
                         goto cofnij;
                     default:
                         cout <<"Podaj liczbe nastepnym razem." << endl;
@@ -114,30 +119,33 @@ int main()
                         cin >> kod_przedmiotu;
                         lw = rep->wycztaj_wyklady();
                         rep->anuluj_wyklad(kod_przedmiotu,*lw);
-                        break;
+                        goto cofnij;
                     case 3:
                         cout << "Podaj nazwisko prowadzacego, do wyswietlenia go z listy: ";
                         cin >> nazwisko_prowadzacego;
                         lw = rep->wycztaj_wyklady();
                         lw->znajdz_wyklad_po_nazwisko_prowadzacego(nazwisko_prowadzacego);
-                        break;
+                        goto cofnij;
                     case 4:
                         cout << "Podaj kod przedmiotu, do wyswietlenia go z listy: ";
                         cin >> kod_przedmiotu;
                         lw = rep->wycztaj_wyklady();
                         lw->znajdz_wyklad_po_kod_przedmiotu(kod_przedmiotu);
-                        break;
+                        goto cofnij;
                     case 5:
                         cout << "Podaj nazwe przedmiotu, do wyswietlenia go z listy: ";
                         cin >> nazwa_przedmiotu;
                         lw = rep->wycztaj_wyklady();
                         lw->znajdz_wyklad_po_nazwa_przedmiotu(nazwa_przedmiotu);
-                        break;
+                        goto cofnij;
                     case 6:
                         lw = rep->wycztaj_wyklady();
                         lw->wypisz_liste();
-                        break;
+                        goto cofnij;
                     case 7:
+                        lw = rep->wycztaj_wyklady();
+                        delete lw;
+                        delete rep;
                         goto cofnij;
                     default:
                         cout <<"Podaj liczbe nastepnym razem." << endl;
@@ -169,8 +177,9 @@ int main()
                         cin >> kod_przedmiotu;
                         cout << "\nPodaj numer indeksu, do usuniecia go z listy: ";
                         cin >> numer_indeksu;
+                        lz = rep->wycztaj_zapisy();
                         rep->anuluj_zapis(kod_przedmiotu, numer_indeksu, *lz);
-                        break;
+                        goto cofnij;
                     case 3:
                         cout << "Podaj kod przedmiotu, do wyświetlenia go z listy: ";
                         cin >> kod_przedmiotu;
@@ -178,12 +187,15 @@ int main()
                         cin >> numer_indeksu;
                         lz = rep->wycztaj_zapisy();
                         lz->znajdz_zapis(kod_przedmiotu, numer_indeksu);
-                        break;
+                        goto cofnij;
                     case 4:
                         lz = rep->wycztaj_zapisy();
                         lz->wypisz_liste();
-                        break;
+                        goto cofnij;
                     case 5:
+                        lz = rep->wycztaj_zapisy();
+                        delete lz;
+                        delete rep;
                         goto cofnij;
                     default:
                         cout <<"Podaj liczbe nastepnym razem." << endl;

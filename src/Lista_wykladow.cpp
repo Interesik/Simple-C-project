@@ -71,7 +71,7 @@ Wyklad* Lista_wykladow::znajdz_wyklad_po_kod_przedmiotu(string kod_przedmiotu) {
 }
 
 Wyklad* Lista_wykladow::znajdz_wyklad_po_nazwa_przedmiotu(string nazwa_przedmiotu) {
-    Wyklad *element_listy = pobierz_poczatek();
+    Wyklad *element_listy = this->pobierz_poczatek();
     if (element_listy == nullptr)
     {
         cout <<"Lista jest pusta"<<endl;

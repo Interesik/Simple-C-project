@@ -6,8 +6,8 @@ class Zapis;
 class Lista_zapisow
 {
 private:
-Zapis *poczatek;
-Zapis *koniec;
+    Zapis *poczatek = nullptr;
+    Zapis *koniec = nullptr;
 public:
     Lista_zapisow(); //konstruktor
 
