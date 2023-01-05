@@ -10,6 +10,11 @@ Wyklad::Wyklad() {
     cout<<"Prosze podac kod przedmiotu:";
     cin>>kod_przedmiotu;
 }
+Wyklad::Wyklad(string nazwa_przedmiotu, string nazwisko_prowadzacego, string kod_przedmiotu) {
+    this->nazwa_przedmiotu = nazwa_przedmiotu;
+    this->nazwisko_prowadzacego = nazwisko_prowadzacego;
+    this->kod_przedmiotu = kod_przedmiotu;
+}
 
 Wyklad::~Wyklad() {}
 

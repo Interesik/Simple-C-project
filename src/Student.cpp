@@ -9,7 +9,10 @@ Student::Student() {
     cin>>indeks;
 }
 
-Student::Student(string imie, string nazwisko, string indeks) : imie(imie),nazwisko(nazwisko),indeks(indeks) {
+Student::Student(string imie, string nazwisko, string indeks) {
+    this->imie = imie;
+    this->nazwisko = nazwisko;
+    this->indeks = indeks;
 }
 
 Student::~Student() {}

@@ -17,20 +17,20 @@ Lista_studentow::~Lista_studentow() {};
 
 void Lista_studentow::wypisz_liste()
 {
-    Student *tymcz = pobierz_poczatek();
-    if (tymcz == nullptr)
+    Student *element_listy = pobierz_poczatek();
+    if (element_listy == nullptr)
     {
         cout <<"Lista jest pusta"<<endl;
         return;
     }
     int i = 1;
-    while (tymcz!=nullptr)
+    while (element_listy!=nullptr)
     {
         cout << "Student nr" << i++ << ":" << endl;
-        cout << "Nazwisko:" << (tymcz-> pobierz_nazwisko()) << endl;
-        cout << "Imie:" << (tymcz-> pobierz_imie()) << endl;
-        cout << "Indeks:" << (tymcz-> pobierz_indeks()) << endl;
-        tymcz = tymcz -> nastepny;
+        cout << "Nazwisko:" << (element_listy-> pobierz_nazwisko()) << endl;
+        cout << "Imie:" << (element_listy-> pobierz_imie()) << endl;
+        cout << "Indeks:" << (element_listy-> pobierz_indeks()) << endl;
+        element_listy = element_listy -> nastepny;
 
     }
 }
@@ -48,43 +48,65 @@ void Lista_studentow::dodaj_studenta(Student* nowy)
 }
 
 Student* Lista_studentow::znajdz_studenta_indeks(string indeks) {
-    Student *tymcz = pobierz_poczatek();
-    if (tymcz == nullptr)
+    Student *element_listy = pobierz_poczatek();
+    if (element_listy == nullptr)
+    {
+        cout <<"Lista jest pusta"<<endl;
+        return nullptr;
+    }
+    while (element_listy!=nullptr)
+    {
+        // Szukamy dopuki nie znajdziemy studneta o takim indesie w liscie
+        if(element_listy->pobierz_indeks().compare(indeks) == 0) {
+            cout << "Znaleziono: \nNazwisko:" << (element_listy-> pobierz_nazwisko()) << endl;
+            cout << "Imie:" << (element_listy-> pobierz_imie()) << endl;
+            cout << "Indeks:" << (element_listy-> pobierz_indeks()) << endl;
+            return element_listy;
+        }
+        element_listy = element_listy -> nastepny;
+    }
+    cout <<"W listcie nie ma studenta o takim indeksie"<<endl;
+    return 0;
+}
+
+Student* Lista_studentow::znajdz_studenta_nazwisko(string nazwisko) {
+    Student *element_listy = pobierz_poczatek();
+    if (element_listy == nullptr)
     {
         cout <<"Lista jest pusta"<<endl;
         return NULL;
     }
-    while (tymcz!=nullptr)
+    while (element_listy!=nullptr)
     {
         // Szukamy dopuki nie znajdziemy studneta o takim indesie w liscie
-        if(tymcz->pobierz_indeks().compare(indeks) == 0) {
-            cout << "Znaleziono: \nNazwisko:" << (tymcz-> pobierz_nazwisko()) << endl;
-            cout << "Imie:" << (tymcz-> pobierz_imie()) << endl;
-            cout << "Indeks:" << (tymcz-> pobierz_indeks()) << endl;
-            return tymcz;
+        if(element_listy->pobierz_nazwisko().compare(nazwisko) == 0) {
+            cout << "Znaleziono: \nNazwisko:" << (element_listy-> pobierz_nazwisko()) << endl;
+            cout << "Imie:" << (element_listy-> pobierz_imie()) << endl;
+            cout << "Indeks:" << (element_listy-> pobierz_indeks()) << endl;
+            return element_listy;
         }
-        tymcz = tymcz -> nastepny;
+        element_listy = element_listy -> nastepny;
     }
     cout <<"W listcie nie ma studenta o takim indeksie"<<endl;
     return 0;
 }
 
 // Zakładam że nie ma 2 i więcej studentów o tym samym indeksie.
-bool Lista_studentow::wyjeb_studenta_za_ECTSY(string indeks) {
+bool Lista_studentow::usun_studneta(string indeks) {
     Student *szukany = this->znajdz_studenta_indeks(indeks);
     Student *poprzedni;
-    Student *tymcz = this->pobierz_poczatek();
+    Student *element_listy = this->pobierz_poczatek();
     // Jeżeli poszukiwany student był pierwszy zamień tylko początek listy
-    if(tymcz == szukany) {
-        this->ustaw_poczatek(tymcz->nastepny);
+    if(element_listy == szukany) {
+        this->ustaw_poczatek(element_listy->nastepny);
         delete szukany;
         cout <<"Usunieto studenta o takim indeksie"<<endl;
         return true;
     }
-    while (tymcz!=nullptr) {
-        if(tymcz == szukany) {
+    while (element_listy != nullptr) {
+        if(element_listy == szukany) {
             // Jeżeli poszukiwany student był ostatni zamień koniec listy i wskźnik poprzedniego elementu
-            if(this->pobierz_koniec() == tymcz) {
+            if(this->pobierz_koniec() == element_listy) {
                 this->ustaw_koniec(poprzedni);
                 poprzedni->nastepny = nullptr;
                 delete szukany;
@@ -92,14 +114,14 @@ bool Lista_studentow::wyjeb_studenta_za_ECTSY(string indeks) {
                 return true;
             }else {
                 // Jeżeli poszukiwany student był w środku listy, zamień wskźnik poprzedniego elementu na następny
-                poprzedni->nastepny = tymcz -> nastepny;
+                poprzedni->nastepny = element_listy -> nastepny;
                 delete szukany;
                 cout <<"Usunieto studenta o takim indeksie"<<endl;
                 return true;
             }
         }
-        poprzedni = tymcz;
-        tymcz = tymcz -> nastepny;
+        poprzedni = element_listy;
+        element_listy = element_listy -> nastepny;
     }
     cout <<"W listcie nie ma studenta o takim indeksie"<<endl;
     return false;

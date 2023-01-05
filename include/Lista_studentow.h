@@ -30,7 +30,7 @@ public:
 
     void wypisz_liste();
 
-    bool wyjeb_studenta_za_ECTSY(string indeks);
+    bool usun_studneta(string indeks);
     //mozna oddac mase funkcji.// czyli usuń, zamień tylko
 
 };
